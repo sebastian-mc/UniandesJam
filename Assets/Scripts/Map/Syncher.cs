@@ -5,7 +5,7 @@ using UnityEngine;
 public class Syncher : MonoBehaviour
 {
     public int tempo;
-    private float _interval;
+    public float _interval { get; private set; }
 
     public System.Action OnBar;
     public System.Action OnQuarter;
@@ -15,7 +15,7 @@ public class Syncher : MonoBehaviour
     private float _time;
     private float nextEigth;
 
-    void Start()
+    void Awake()
     {
         _interval = 60f / (float)(tempo * 2);
         _time = Time.time;

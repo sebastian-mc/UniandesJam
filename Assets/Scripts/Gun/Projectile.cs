@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour
     public LayerMask collisionMask;
 
     public float speed = 10;
-    public bool playerFire;
 
     void Start()
     {
@@ -35,17 +34,9 @@ public class Projectile : MonoBehaviour
             Entity entity = hit.collider.GetComponent<Entity>();
             if (entity != null)
             {
-                OnHitObject(entity, hit.point);
+                entity.TakeDamage();
             }
             Destroy(gameObject);
-        }
-    }
-
-    void OnHitObject(Entity entity, Vector3 hitPoint)
-    {
-        if ((entity.GetComponent<Player>() == null && playerFire) || (entity.GetComponent<Player>() != null && !playerFire))
-        {
-            entity.TakeHit(hitPoint, transform.forward);
         }
     }
 }

@@ -12,14 +12,18 @@ public class Entity : MonoBehaviour
 
     public event System.Action OnDeath;
 
+    public enum State
+    {
+        Spawning,
+        Active,
+        Inactive,
+        Dead
+    }
+    public State _state;
+
     protected virtual void Start()
     {
         hitPoints = startingHitPoints;
-    }
-
-    public virtual void TakeHit(Vector3 hitpoint, Vector3 hitDirection)
-    {
-        TakeDamage();
     }
 
     public virtual void TakeDamage()

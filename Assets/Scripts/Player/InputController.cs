@@ -32,6 +32,7 @@ public class InputController : MonoBehaviour
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveInput = _cam.transform.TransformDirection(moveInput);
         moveInput.y = 0;
+        moveInput = moveInput.normalized;
 
         //Rotation
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);

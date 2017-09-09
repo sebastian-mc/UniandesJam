@@ -5,19 +5,20 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject projectile;
+    public Transform gunHolder;
 
     private bool _shooting;
     private int i = 1;
 
     void Start()
     {
-        GameObject.FindObjectOfType<Syncher>().OnQuarter += Shoot;
+        FindObjectOfType<Syncher>().OnQuarter += Shoot;
     }
 
     public void Aim(Vector3 lookPoint)
     {
-        transform.LookAt(lookPoint);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        gunHolder.transform.LookAt(lookPoint);
+        gunHolder.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     public void Shooting(bool shoot)
@@ -30,8 +31,8 @@ public class Gun : MonoBehaviour
         if(_shooting)
         {
             GameObject newProjectile = Instantiate(projectile);
-            newProjectile.transform.position = transform.position;
-            newProjectile.transform.eulerAngles = transform.eulerAngles;
+            newProjectile.transform.position = gunHolder.transform.position;
+            newProjectile.transform.eulerAngles = gunHolder.transform.eulerAngles;
         }
     }
 }
