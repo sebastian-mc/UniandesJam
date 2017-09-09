@@ -8,7 +8,6 @@ using UnityEngine;
 public class Player: Entity
 {
     public float moveSpeed = 5;
-    public GameObject deathFx;
 
     private Rigidbody _rigidBody;
 
@@ -38,9 +37,6 @@ public class Player: Entity
     public override void Die()
     {
         //AudioManager.instance.PlaySound("PlayerDeath", transform.position);
-        GameObject death = Instantiate(deathFx);
-        death.transform.position = transform.position;
-        Destroy(death, 5f);
         base.Die();
     }
 }

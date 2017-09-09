@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
 
     public int hitPoints { get; protected set; }
     protected bool dead;
-
+    public GameObject deathFx;
     public event System.Action OnDeath;
 
     public enum State
@@ -44,6 +44,9 @@ public class Entity : MonoBehaviour
         {
             OnDeath();
         }
+        GameObject death = Instantiate(deathFx);
+        death.transform.position = transform.position;
+        Destroy(death, 5f);
         Destroy(gameObject);
     }
 }

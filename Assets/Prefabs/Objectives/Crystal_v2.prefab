@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4249309180562094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crystal_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4006312586700942}
   - component: {fileID: 33902273197566192}
   - component: {fileID: 23962306139177260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4944173492306916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crystal_v3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4451764435618540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crystal_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4641037696845554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crystal_v1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4825215006718726}
   - component: {fileID: 33212591929921182}
   - component: {fileID: 23986858257099528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4309440016987698}
   - component: {fileID: 33237933061386520}
   - component: {fileID: 23716655734325916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4086077208124290}
-  m_Layer: 0
+  - component: {fileID: 65314367349886220}
+  - component: {fileID: 114997481056584324}
+  m_Layer: 8
   m_Name: Crystal_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +149,7 @@ GameObject:
   - component: {fileID: 4293433619762406}
   - component: {fileID: 33281034000613670}
   - component: {fileID: 23862341250818370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771266300978736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: 7.220003, y: 1.0138254, z: -7.2879276}
   m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_Children:
   - {fileID: 4249309180562094}
@@ -435,3 +437,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431863501274394}
   m_Mesh: {fileID: 4300000, guid: 962d790dbcbefd245af5de3c7b9a49b3, type: 3}
+--- !u!65 &65314367349886220
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771266300978736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 10, z: 3}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &114997481056584324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771266300978736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15c2c44a518db84ca325ca9348de3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHitPoints: 3
+  deathFx: {fileID: 1642962047250820, guid: dbc2bcf5b52a3d34081081e257dc55a1, type: 2}
+  _state: 0

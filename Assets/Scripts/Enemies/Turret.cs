@@ -8,7 +8,6 @@ public class Turret : Entity
     public Transform turretHeadModel;
     public Transform muzzle;
     public GameObject projectile;
-    public GameObject deathFx;
     public bool bandTurret;
     public Transform band;
     public float probability;
@@ -160,14 +159,11 @@ public class Turret : Entity
 
     public override void Die()
     {
-        GameObject death = Instantiate(deathFx);
-        death.transform.position = transform.position;
         FindObjectOfType<Syncher>().OnEigth -= Shoot;
         if (bandTurret)
         {
             FindObjectOfType<Syncher>().OnBar -= MoveBand;
         }
-        Destroy(death, 5f);
-        Destroy(gameObject);
+        base.Die();
     }
 }
