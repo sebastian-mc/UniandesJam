@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        if(_shooting)
+        if (_shooting)
         {
             GameObject newProjectile = Instantiate(projectile);
             newProjectile.transform.position = gunHolder.transform.position;

@@ -1,47 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Core : Entity
 {
     public Transform shell;
+    public Image healthBar;
+
+    public GameObject endScreen;
+    public Text endText;
 
     private int crystals = 0;
-    private bool shellOn;
+
+    private enum CoreState
+    {
+        ShellOn,
+        ShellOff,
+        Won,
+        Lost
+    }
+    private CoreState coreState = CoreState.ShellOn;
 
     protected override void Start()
     {
         base.Start();
-        shellOn = true;
+        FindObjectOfType<Player>().OnDeath += OnCharDeath;
+        healthBar.gameObject.SetActive(false);
         Crystal[] cry = FindObjectsOfType<Crystal>();
-        for(int i = 0; i< cry.Length; i++)
+        for (int i = 0; i < cry.Length; i++)
         {
             crystals++;
             cry[i].OnDeath += CrystalDestroyed;
         }
+
+        endScreen.gameObject.SetActive(false);
     }
 
     void CrystalDestroyed()
     {
         crystals--;
-        if(crystals == 0)
+        if (crystals == 0)
         {
-            shellOn = false;
+            healthBar.gameObject.SetActive(true);
+            coreState = CoreState.ShellOff;
             StartCoroutine(ShellOff());
         }
     }
 
     public override void TakeDamage()
     {
-        if (shellOn) return;
+        if (coreState == CoreState.ShellOn) return;
         base.TakeDamage();
     }
 
     public override void Die()
     {
+        coreState = CoreState.Won;
+        endScreen.gameObject.SetActive(true);
 
         base.Die();
     }
+
+    void OnCharDeath()
+    {
+        coreState = CoreState.Lost;
+        endScreen.gameObject.SetActive(true);
+        endText.text = "Wasted!";
+    }
+
 
     IEnumerator ShellOff()
     {

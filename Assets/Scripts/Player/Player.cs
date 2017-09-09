@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(InputController))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
-public class Player: Entity
+public class Player : Entity
 {
     public float moveSpeed = 5;
 

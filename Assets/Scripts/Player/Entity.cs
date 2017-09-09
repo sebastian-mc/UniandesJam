@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Entity : MonoBehaviour
     protected bool dead;
     public GameObject deathFx;
     public event System.Action OnDeath;
+    public Image[] hits;
 
     public enum State
     {
@@ -29,7 +31,7 @@ public class Entity : MonoBehaviour
     public virtual void TakeDamage()
     {
         hitPoints--;
-
+        hits[hitPoints].enabled = false;
         if (hitPoints <= 0 && !dead)
         {
             Die();

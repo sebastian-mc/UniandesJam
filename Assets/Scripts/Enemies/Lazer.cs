@@ -38,7 +38,7 @@ public class Lazer : Entity
 
     void Shoot()
     {
-        if(_state == State.Active && !shooting)
+        if (_state == State.Active && !shooting)
         {
             shooting = true;
             StartCoroutine(ShootBeam());
@@ -47,7 +47,7 @@ public class Lazer : Entity
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Player>() != null)
+        if (other.GetComponent<Player>() != null)
         {
             other.GetComponent<Entity>().TakeDamage();
         }
@@ -65,7 +65,7 @@ public class Lazer : Entity
         while (percent < 1)
         {
             boxCollider.enabled = true;
-            beam.endWidth = beam.startWidth = Mathf.Lerp(2, 100, Mathf.Clamp(percent*1.95f, 0, 1));
+            beam.endWidth = beam.startWidth = Mathf.Lerp(2, 100, Mathf.Clamp(percent * 1.95f, 0, 1));
             beamMaterial.mainTextureOffset = Vector2.right * Mathf.Lerp(0, 20, percent);
 
             currentTime += Time.deltaTime;
